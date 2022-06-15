@@ -27,12 +27,10 @@ public:
 	//static double distance_pl(const std::vector<double>&, std::vector<double>&, std::vector<int>&, std::vector<bool>&, std::vector<double>&, std::map<int, int>&, std::map<int, int>&);
 	
 	f get_obj_func(const std::string& name) {
-		if (funcMap[name]) {
-			return funcMap[name];
-		}
-		else {
-			std::cerr << "Constraint not found!" << std::endl;
-		}
+		if (!funcMap[name])
+            std::cerr << "Constraint not found!" << std::endl;
+        
+        return funcMap[name];
 	}
 
 private:
